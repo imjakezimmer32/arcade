@@ -61,7 +61,7 @@ export const GAMES: GameMeta[] = [
   { id: "chess", title: "CHESS", blurb: "Hot seat. Pass the phone.", boardKey: "chess", hotSeat: true, glyph: "♞" },
   { id: "four", title: "FOUR", blurb: "Hot seat. Four in a row.", boardKey: "four", hotSeat: true, glyph: "◉" },
   { id: "flip", title: "FLIP", blurb: "Hot seat. Reversi.", boardKey: "flip", hotSeat: true, glyph: "◐" },
-  { id: "hop", title: "HOP", blurb: "Cross the garden.", boardKey: "hop", glyph: "🐸" },
+  { id: "hop", title: "HOP", blurb: "Cross the garden.", boardKey: "hop", glyph: "▴" },
   { id: "echo", title: "ECHO", blurb: "Repeat the lights.", boardKey: "echo", glyph: "✦" },
   { id: "rocks", title: "ROCKS", blurb: "Split the stones.", boardKey: "rocks", glyph: "☄" },
   { id: "peck", title: "PECK", blurb: "Whack the sprouts.", boardKey: "peck", glyph: "☘" },
