@@ -1,0 +1,32 @@
+# Dev options
+
+- Package still `app.snake`; launcher name is Arcade
+- Cabinets: Snake, Mines, Breakout, Stacks, 2048, Pong, Invaders, Flit, Memory, Dodge, Checkers, Chess, Four, Flip, Hop, Echo, Rocks, Peck, Catch, Slide, Boxes
+- Home is an icon grid; Scores picks games by icon
+- Mines: first-click safe, flood zeros, flags, questions, chord, flag-mode toggle, timer
+- High scores: write-in name only when a run beats the current best; every finished run still goes in history
+- Hot-seat chess/checkers record the winner under the name they sat down with (no extra prompt)
+- Snake, Pong, and Memory offer SOLO or HOT SEAT at the start
+- Pong hot seat: two paddles, first to 7, both play at once
+- Memory hot seat: take turns, a match keeps the turn
+- Snake hot seat: first player runs, then pass; highest berries wins
+- Scores for 2P sit under a 2P chip so they don't mix with solo times/rallies
+- Scores screen shows a top 3 podium plus full history; names can be reused via tap chips
+- Mines podium uses wins only (faster time); losses still go in history
+- Last typed name is remembered
+- Leaving the app pauses live action games
+- Invaders: 9×5 waves, bunkers, UFO, 3 lives, hold-to-fire
+- Checkers: American rules, forced jumps, kings both ways
+- Chess: legal moves, castling, en passant, promotion, check/mate/stale
+- Four: Connect Four, 7×6, pass the phone
+- Flip: Reversi, legal dots, skip if the other side has no move
+- Echo: Simon pads, 3 lives, score is rounds survived
+- Hop: Frogger, 5 home pads, logs and cars, 3 lives
+- Rocks: hold toward a stone to fly, tap to fire, wrap, split rocks
+- Peck: sprouts with eyes; empty soil is safe; ducking costs a life
+- Catch: finger-follow basket; bite berries hurt if caught
+- Slide: swipe or tap; faster time is better
+- Boxes: fat line hits; closing a square keeps the turn
+- Hits match the drawn sprite. Presses fire on contact. Swipe cabinets do not also count that swipe as a tap.
+- Hop: tap hops up; landing on water snaps to a log or splats
+- Dodge: finger is the beetle, three lives
