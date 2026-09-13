@@ -13,3 +13,5 @@
 *.ap_
 *.keystore
 *.jks
+/web/node_modules/
+/web/dist/
