@@ -1,0 +1,397 @@
+:root {
+  --void: #070a08;
+  --pit: #0c1410;
+  --pit-alt: #101a14;
+  --leaf: #3ddc84;
+  --head: #c8ff7a;
+  --bite: #ff5a6a;
+  --mist: #d7f5e3;
+  --dim: #7fa88f;
+  --pad: #15241c;
+  --pad-stroke: #2a4a38;
+  --moss: #1a3a28;
+  --dew: #8be8b0;
+  --shell: #e8f5c8;
+  --vein: #0a1f14;
+  --pond: #143d4a;
+  --sky: #7fdbff;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--void);
+  color: var(--mist);
+  font-family: var(--font-display);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #0f2218 0%, transparent 55%),
+    linear-gradient(180deg, #08110c 0%, var(--void) 45%, #050806 100%);
+}
+
+#app {
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 18px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.brand {
+  color: var(--leaf);
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+}
+
+.sub {
+  color: var(--dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 8px;
+  margin-top: 22px;
+  padding-bottom: 12px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 4px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  border-color: var(--leaf);
+  outline: none;
+}
+
+.tile:active {
+  transform: scale(0.97);
+  border-color: var(--leaf);
+}
+
+.tile-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--pad);
+  border: 1px solid var(--pad-stroke);
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+}
+
+.tile-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.tile-cap {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--dim);
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.hud-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.hud-sub {
+  color: var(--dim);
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.hud-value {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  color: var(--head);
+  text-align: right;
+}
+
+.hud-label {
+  color: var(--dim);
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--pad);
+  border: 1px solid var(--pad-stroke);
+  display: grid;
+  place-items: center;
+  color: var(--leaf);
+  flex-shrink: 0;
+}
+
+.icon-btn:hover {
+  border-color: var(--leaf);
+}
+
+.pit {
+  position: relative;
+  flex: 1;
+  min-height: 360px;
+  background: linear-gradient(180deg, var(--pit-alt), var(--pit));
+  border: 1px solid var(--pad-stroke);
+  border-radius: 28px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.pit canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pit-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  text-align: center;
+  color: var(--dim);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 10, 8, 0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.overlay h2 {
+  color: var(--head);
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+
+.overlay p {
+  color: var(--dim);
+  max-width: 16rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.leaf-btn {
+  min-width: 108px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 22px;
+  background: var(--leaf);
+  color: var(--void);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.leaf-btn.ghost {
+  background: var(--pad);
+  color: var(--mist);
+  border: 1px solid var(--pad-stroke);
+}
+
+.leaf-btn:active {
+  transform: scale(0.97);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.controls .leaf-btn {
+  flex: 1;
+}
+
+.score-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(100%, 260px);
+}
+
+.score-form input {
+  background: var(--pit);
+  border: 1px solid var(--leaf);
+  border-radius: 14px;
+  color: var(--mist);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 12px 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.name-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.name-chip {
+  border: 1px solid var(--pad-stroke);
+  background: var(--pad);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.board-panel {
+  display: grid;
+  gap: 8px;
+}
+
+.cell-grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--pad);
+  border: 1px solid var(--pad-stroke);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.leader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.chip-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.chip {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: 1px solid var(--pad-stroke);
+  background: var(--pad);
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.chip.on {
+  border-color: var(--leaf);
+  color: var(--leaf);
+}
+
+.podium,
+.history {
+  background: var(--pit);
+  border: 1px solid var(--pad-stroke);
+  border-radius: 22px;
+  padding: 14px;
+}
+
+.row-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 6px 0;
+  border-bottom: 1px solid #132018;
+}
+
+.row-line:last-child {
+  border-bottom: none;
+}
+
+.muted {
+  color: var(--dim);
+}
+
+.game-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
